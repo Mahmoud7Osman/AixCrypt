@@ -36,7 +36,7 @@ dbg();
 
 	ffd=open(argv[1], O_RDONLY);
 	afd=open(argv[2], O_RDONLY);
-	kfd=open(argv[3], O_WRONLY | O_CREAT);
+	kfd=open(argv[3], O_WRONLY | O_CREAT | O_TRUNC);
 
 	if (ffd == -1 || afd == -1 || kfd == -1)
 		return fprintf(stderr, "(Error) Opening Files\n");
@@ -63,15 +63,18 @@ dbg();
 		return fprintf(stderr, "(Error) Wrong Size Was Read From Specified Files\n");
 	}
 dbg();
-	for (size_t size; size<file.st_size; size++){
-		*(byte3++)=*(byte1++)-*(byte2++);
+	for (int size=0; size<=file.st_size; size++){
+		*byte3=*byte1-*byte2;
+		byte1++;byte2++;byte3++;
 	}
 dbg();
 	write(kfd, key, file.st_size);
-	free(fdata);
-	free(adata);
 
 	close(ffd);
 	close(afd);
 	close(kfd);
+
+	free(fdata);
+	free(adata);
+	free(key);
 }
