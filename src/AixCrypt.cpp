@@ -14,7 +14,7 @@
 
 int main(int argc, char** argv){
 	if (argc < 3){
-	   return fprintf(stderr, "Usage: %s <file> --as pct.jpg --key mykey.txt\n");
+	   return 1;
 	}
 
 	int ffd;  // Original File Used For Key Calculation for the 'As' File
@@ -41,8 +41,6 @@ int main(int argc, char** argv){
 	if (file.st_size > asfile.st_size){
 		return fprintf(stderr, "(Error) The 'As' File size is smaller than the original file\n");
 	}
-
-	printf ("%d\n%d\n%d\n", file.st_size, asfile.st_size, file.st_size);
 
 	fdata=(char*)malloc(file.st_size);
 	adata=(char*)malloc(asfile.st_size);
