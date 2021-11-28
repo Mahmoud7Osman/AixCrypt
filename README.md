@@ -9,8 +9,11 @@ It Is Used To Share Data In a Secure Way, Out Of Sight, Invisible To Others, Lik
     <li>aix -h</li>
   </ol>
   <h5> Example: </h5>
-   aix passwords.txt --keygen -f picture.jpg -k key.txt    (This will calculate a key for the passwords.txt and the picture.jpg files)
-   aix passwords.txt --produce -f picture.jpg -k key.txt   (This will Reproduce the password.txt file by decrypting the picture.jpg file with the pre-calculated key.txt file)
+   <ul>
+   <li>aix passwords.txt --keygen -f picture.jpg -k key.txt    (This will calculate a key for the passwords.txt and the picture.jpg files)</li>
+   <li>aix passwords.txt --produce -f picture.jpg -k key.txt   (This will Reproduce the password.txt file by decrypting the picture.jpg file with the pre-calculated key.txt file)</li>
+   </ul>
+
 
 
 <img src=AixCrypt-fcnt.png> </img>
