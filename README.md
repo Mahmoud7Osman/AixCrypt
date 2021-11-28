@@ -10,8 +10,9 @@ It Is Used To Share Data In a Secure Way, Out Of Sight, Invisible To Others, Lik
   </ol>
   <h5> Example: </h5>
    <ul>
-   <li>aix passwords.txt --keygen -f picture.jpg -k key.txt    (This will calculate a key for the passwords.txt and the picture.jpg files)</li>
-   <li>aix passwords.txt --produce -f picture.jpg -k key.txt   (This will Reproduce the password.txt file by decrypting the picture.jpg file with the pre-calculated key.txt file)</li>
+   <li>aix passwords.txt --keygen -f picture.jpg -k key.txt    (This will calculate a key for the passwords.txt and the picture.jpg files and store it in key.txt)</li>
+  
+   <li>aix decrypted_passwords.txt --produce -f picture.jpg -k key.txt   (This will Reproduce the password.txt file by decrypting the picture.jpg file with the pre-calculated key.txt file, putting reproduced data in the decrypted_passwords.txt file)</li>
    </ul>
 
 
