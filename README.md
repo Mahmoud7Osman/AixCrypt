@@ -5,7 +5,7 @@ It Is Used To Share Data In a Secure Way, Out Of Sight, Invisible To Others, Lik
 
 <h3>Usage: </h3>
   <ol>
-    <li>bash install.sh</li>
+    <li>sudo bash install.sh (sudo required to copy aix into /bin)</li>
     <li>aix -h for help</li>
   </ol>
   <h5> Example: </h5>
