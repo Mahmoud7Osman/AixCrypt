@@ -1,43 +1,44 @@
+#include "pts.h"
+
 #include <iostream>
 #include <cstring>
 #include <unistd.h>
 #include <fcntl.h>
+#include <errno.h>
 
 using namespace std;
 
+
 int main(int argc, char** argv){
 	int   	   opt;
-	int    	     i;
 	int    produce;
 	int        key;
 
-	char* arguments[4];
+	char* arguments[5];
 
-        if (open(argv[1], O_RDONLY)<0){
-                cerr << "Error: Command Line Arguments Missing or Not Specified Correctly.\nExecute With -h For Help\n";
-		return 1;
-        }
+	arguments[4]=NULL;
+
 	arguments[1]=argv[1];
 
 	produce=strcmp(argv[2], "produce");
-	key=strcmp(argv[2], "key");
+	key=strcmp(argv[2], "keygen");
 
 	while ((opt=getopt(argc, argv, ":f:k:"))!=-1){
-		printf ("Running\n");
 		switch(opt){
+
 			case 'f':
-				arguments[2]=argv[i+1];
-				printf ("Fucking\n");
+				arguments[2]=argv[4];
+				break;
 			case 'k':
-				arguments[3]=argv[i+1];
+				arguments[3]=argv[6];
+				break;
 		}
-		i++;
 	}
 	if (produce==0x00)
-		arguments[0]=(char*)"XKgenerate";
+		arguments[0]=(char*)XKP;
 	else if (key==0x00)
-		arguments[0]=(char*)"XKproducer";
+		arguments[0]=(char*)XKK;
 	else return fprintf(stderr, "Error: No Operation Was Specified, Generate Key, Or Produce Data, execute ./%s -h\n", argv[0]);
 
-	return execve(arguments[0], arguments, NULL);
+	return execvp(arguments[0], arguments);
 }
